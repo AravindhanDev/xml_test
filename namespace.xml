@@ -1,0 +1,14 @@
+<root xmlns:h="htmltable" xmlns:f="furnitue">
+    <h:table>
+        <h:tr>
+            <h:td>Grapes</h:td>
+            <h:td>Apples</h:td>
+        </h:tr>
+    </h:table>
+
+    <f:table>
+        <f:name>CoffeeTable</f:name>
+        <f:width>80</f:width>
+        <f:length>20</f:length>
+    </f:table>
+</root>

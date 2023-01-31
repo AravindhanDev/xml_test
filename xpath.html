@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Xml Xpath</title>
+	</head>
+	<body>
+		<pre id="demo"></pre>
+		<script>
+			;(async function () {
+				let response = await fetch("student.xml")
+				let res = await response.text()
+				let parser = new DOMParser()
+				let xml = parser.parseFromString(res, "text/xml")
+				showResults(xml)
+			})()
+
+			function showResults(xml) {
+				let res = ""
+				let path = "/students/student/address/area"
+				let nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null)
+				let result = nodes.iterateNext()
+				while (result) {
+					res += result.textContent + "\n"
+					result = nodes.iterateNext()
+				}
+				document.getElementById("demo").innerHTML = res
+			}
+		</script>
+	</body>
+</html>

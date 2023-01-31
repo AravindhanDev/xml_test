@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE products [
+    <!ELEMENT products (product)>
+    <!ELEMENT product (name, rate, review)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT rate (#PCDATA)>
+    <!ELEMENT review (#PCDATA)>
+]>
+
+<products>
+    <product>
+        <name>Pencil</name>
+        <rate>15</rate>
+        <review>Pretty good pencil</review>
+    </product>
+    <product>
+        <name>Pen</name>
+        <rate>22</rate>
+        <review>Awesome pen</review>
+    </product>
+    <product>
+        <name>Eraser</name>
+        <rate>10</rate>
+        <review>Good Eraser</review>
+    </product>
+</products>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>XML Document</title>
+	</head>
+	<body>
+		<p id="demo"></p>
+		<script>
+			let parser, xmlDoc
+			let text = `<students>
+			    <student>
+			        <name>Aravindhan</name>
+			        <age>20</age>
+			        <rollno>2022178046</rollno>
+			        <address>
+			            <street>No 32 Ramakrishna Nagar</street>
+			            <area>Kallukuzhi</area>
+			            <city>Tiruchirappalli - 620020</city>
+			        </address>
+			    </student>
+			    <student>
+			        <name>Ashok</name>
+			        <age>20</age>
+			        <rollno>2022178043</rollno>
+			        <address>
+			            <street>No 5 Ambedkar Nagar</street>
+			            <area>Sangiliyandapuram</area>
+			            <city>Tiruchirappalli - 620019</city>
+			        </address>
+			    </student>
+			</students>`
+			parser = new DOMParser()
+			xmlDoc = parser.parseFromString(text, "text/xml")
+			let addresses = xmlDoc.getElementsByTagName("address")
+			for (let address of addresses) {
+				let {
+					firstChild: { nodeValue: street }
+				} = address.childNodes[1]
+				let {
+					firstChild: { nodeValue: area }
+				} = address.childNodes[3]
+				let {
+					firstChild: { nodeValue: city }
+				} = address.childNodes[5]
+				console.log(`${street}, ${area}, ${city}`)
+			}
+		</script>
+	</body>
+</html>
